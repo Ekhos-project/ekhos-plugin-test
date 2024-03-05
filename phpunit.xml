@@ -1,13 +1,13 @@
 <phpunit bootstrap="vendor/autoload.php">
     <testsuites>
         <testsuite name="Mon Plugin Test Suite">
-            <directory>./tests</directory>
+            <directory>./wp-content/plugins/ekhos/tests</directory>
         </testsuite>
     </testsuites>
 
     <coverage processUncoveredFiles="true">
         <include>
-            <directory suffix=".php">./</directory>
+            <directory suffix=".php">./wp-content/plugins/ekhos/tests</directory>
         </include>
         <report>
             <html outputDirectory="coverage-report"/>

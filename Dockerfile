@@ -13,10 +13,10 @@ RUN docker-php-ext-install zip
 RUN pecl install xdebug && docker-php-ext-enable xdebug
 
 RUN { \
-        echo 'xdebug.mode=debug, coverage'; \
-        echo 'xdebug.start_with_request=yes'; \
-        echo 'xdebug.client_host=docker.for.mac.localhost'; \
-        echo 'xdebug.client_port=9009'; \
+        echo 'xdebug.mode=coverage'; \
+        echo 'xdebug.start_with_request=trigger'; \
+        echo 'xdebug.client_host=host.docker.internal'; \
+        echo 'xdebug.client_port=9003'; \
     } > /usr/local/etc/php/conf.d/xdebug.ini
 
 # Installez Composer
@@ -24,6 +24,8 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 
 # Copiez le fichier composer.json dans l'image
 COPY composer.json /var/www/html/composer.json
+
+COPY phpunit.xml /var/www/html/phpunit.xml
 
 # Exécutez Composer Install pour installer les dépendances PHP
 RUN composer install --working-dir=/var/www/html
