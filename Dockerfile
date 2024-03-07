@@ -27,6 +27,8 @@ COPY composer.json /var/www/html/composer.json
 
 COPY phpunit.xml /var/www/html/phpunit.xml
 
+COPY phpunit-bootstrap.php /var/www/html/phpunit-bootstrap.php
+
 COPY .htaccess /var/www/html/.htaccess
 
 COPY entrypoint.sh /usr/local/bin/
