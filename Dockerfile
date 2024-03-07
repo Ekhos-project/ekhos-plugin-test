@@ -29,7 +29,14 @@ COPY phpunit.xml /var/www/html/phpunit.xml
 
 COPY .htaccess /var/www/html/.htaccess
 
+COPY entrypoint.sh /usr/local/bin/
+
+RUN chmod +x /usr/local/bin/entrypoint.sh
+
 # Exécutez Composer Install pour installer les dépendances PHP
 RUN composer install --working-dir=/var/www/html
 
 RUN ln -s /var/www/html/vendor/bin/phpunit /usr/local/bin/phpunit
+
+# Définition du script comme point d'entrée
+ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
