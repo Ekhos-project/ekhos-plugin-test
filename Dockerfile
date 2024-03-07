@@ -27,5 +27,9 @@ COPY composer.json /var/www/html/composer.json
 
 COPY phpunit.xml /var/www/html/phpunit.xml
 
+COPY .htaccess /var/www/html/.htaccess
+
 # Exécutez Composer Install pour installer les dépendances PHP
 RUN composer install --working-dir=/var/www/html
+
+RUN ln -s /var/www/html/vendor/bin/phpunit /usr/local/bin/phpunit
