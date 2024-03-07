@@ -1,3 +1,2 @@
 RewriteEngine On
-# Redirection vers la page de couverture de code
 RewriteRule ^tests/$ /coverage-report/index.html [L,NC,R=302]
