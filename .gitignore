@@ -20,4 +20,4 @@ Thumbs.db
 /wp-content/plugins/hello.php
 /wp-content/uploads/
 *.log
-/.htaccess
+**/.DS_Store
